@@ -1,0 +1,32 @@
+.product-item {
+  border: 1px solid #333;
+  margin: 20px;
+  padding: 10px;
+}
+.product-item input:disabled {
+  border-color: transparent;
+}
+.product-item input {
+  border: 1px solid orange;
+  font-size: 18px;
+  padding: 5px;
+  min-width: 700px;
+}
+.title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.update-item {
+  padding: 10px 0;
+}
+.price {
+  padding: 5px 0;
+}
+
+.update-button {
+  background-color: lightblue;
+}
+.update-button.ing {
+  background-color: orange;
+}
