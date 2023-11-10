@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { RootState } from "../modules";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsAll } from "../modules/products";

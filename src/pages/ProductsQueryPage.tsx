@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import ProductList from "../components/ProductList";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { productKeys } from "../react-query/constants";
