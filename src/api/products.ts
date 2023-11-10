@@ -27,7 +27,7 @@ export const productsApi: productsApiFetchers = {
 };
 
 // saga에서 사용
-export const getProductsAllRequest = async () => {
-  const res = await request.get("products");
+export const getProductsAllRequest = async (pageParam = 1) => {
+  const res = await request.get(`products?_page=${pageParam}&_limit=5`);
   return res.data;
 };

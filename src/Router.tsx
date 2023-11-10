@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage";
 import ProductsQueryPage from "./pages/ProductsQueryPage";
 import ProductsSagaPage from "./pages/ProductsSagaPage";
+import MainPage from "./pages/MainPage";
 function Router() {
   return (
     <BrowserRouter>

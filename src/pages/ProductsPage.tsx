@@ -36,7 +36,7 @@ function ProductsPage() {
   }
 
   return (
-    <div>
+    <div className="min-h-full">
       <h1 className="text-3xl font-bold underline">Products</h1>
       <ProductList productList={productList} />
     </div>

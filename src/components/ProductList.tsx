@@ -7,7 +7,7 @@ type Props = {
 
 function ProductList({ productList }: Props) {
   return (
-    <div className="products">
+    <div className="products relative">
       {productList.map((product) => (
         <ProductItem key={product.id} item={product} />
       ))}
