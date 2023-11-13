@@ -6,6 +6,8 @@ import { productsApi } from "../api/products";
 import ListMore from "../components/ListMore";
 import ListLayout from "../layout/ListLayout";
 import Spinner from "../components/Spinner";
+import SearchInput from "../components/SearchInput";
+import { SearchProvider } from "../contexts/SearchProvider";
 
 function ProductsQueryPage() {
   const {
@@ -44,17 +46,20 @@ function ProductsQueryPage() {
   return (
     <ListLayout>
       <h1 className="text-3xl font-bold underline">Products</h1>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <ProductList productList={productList} />
-          <ListMore
-            fetchMoreList={fetchMoreList}
-            isFetchingNextPage={isFetchingNextPage}
-          />
-        </>
-      )}
+      <SearchProvider>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <SearchInput />
+            <ProductList productList={productList} />
+            <ListMore
+              fetchMoreList={fetchMoreList}
+              isFetchingNextPage={isFetchingNextPage}
+            />
+          </>
+        )}
+      </SearchProvider>
     </ListLayout>
   );
 }

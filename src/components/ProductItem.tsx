@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Product } from "../types/products";
+import { useSearchValue } from "../hooks/useContext";
 
 type Props = {
   item: Product;
@@ -7,6 +8,13 @@ type Props = {
 // 추가로 불러오는 item만 리랜더링하기 위해 memo 처리
 const MemoProductItem = React.memo(function ProductItem({ item }: Props) {
   console.log("item id:", item.id);
+
+  const highlightValue = useSearchValue();
+  const index = useMemo(
+    () => item.title.toLocaleLowerCase().indexOf(highlightValue.toLowerCase()),
+    [highlightValue, item.title]
+  );
+
   return (
     <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
       <svg
@@ -27,7 +35,17 @@ const MemoProductItem = React.memo(function ProductItem({ item }: Props) {
         </div>
         <div>
           <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {item.title}
+            {index === -1 ? (
+              item.title
+            ) : (
+              <>
+                {item.title.slice(0, index)}
+                <span className="bg-blue-400">
+                  {item.title.slice(index, index + highlightValue.length)}
+                </span>
+                {item.title.slice(index + highlightValue.length)}
+              </>
+            )}
           </h5>
 
           <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
