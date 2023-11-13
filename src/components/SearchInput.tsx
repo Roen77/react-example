@@ -4,14 +4,14 @@ import { useSearchActions } from "../hooks/useContext";
 function SearchInput() {
   const [text, setText] = useState("");
   const { onChange: onChangeHighlightValue } = useSearchActions();
-  //   const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
     onChangeHighlightValue(e.target.value);
-    // startTransition(() => {
-    //   onChangeHighlightValue(e.target.value);
-    // });
+    startTransition(() => {
+      onChangeHighlightValue(e.target.value);
+    });
   };
   return (
     <div className="pt-10">
